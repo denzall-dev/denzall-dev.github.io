@@ -13,8 +13,10 @@ $(function () {
       $(document).on("keyup", handleKeyUp);
       firstTimeSetup = false;
       //start game
+      
       setInterval(main, 1000 / frameRate);
     }
+    
     // Create walls - do not delete or modify this code
     createPlatform(-50, -50, canvas.width + 100, 50); //top
     createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //right
@@ -27,7 +29,7 @@ $(function () {
      * This can help you determine specific x any y values throughout the game
      * Comment the function call out to remove the grid
      */
-
+      
     // drawGrid();
 
     /////////////////////////////////////////////////
@@ -36,7 +38,13 @@ $(function () {
 
     // TODO 1
     // Create platforms
+    createPlatform(500,300,200,20)
+    createPlatform(300,615,200, 20)
+    createPlatform(500,500,200,20)
+    createPlatform(200, 400,200,20)
+    createPlatform(650,200,200,20)
     // You must decide the x position, y position, width, and height of the platforms
+
     // example usage: createPlatform(x,y,width,height)
 
 
@@ -44,6 +52,8 @@ $(function () {
     
     // TODO 2
     // Create collectables
+    createCollectable("diamond", 500,400,20,0.5 )
+    createCollectable("grace",500,300)
     // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
@@ -53,6 +63,9 @@ $(function () {
     
     // TODO 3
     // Create cannons
+    createCannon("right",100,1000)
+     createCannon("right",600,1000)
+    createCannon("bottom",600,900)
     // You must decide the wall you want the cannon on, the position on the wall, and the time between shots in milliseconds
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
