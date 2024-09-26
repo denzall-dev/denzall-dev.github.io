@@ -17,7 +17,7 @@
 			position: absolute;
 			top: 100px;
 			/* Change me! */
-			left: 200px,300px,400px,0px;
+			left: 0px;
 		}
 
 		.board {
@@ -52,10 +52,8 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			  {
-				nameoffunction(arguments)
-              moveBoxTo(100) 
-			  moveBoxTo(boardWidth)
+			  function moveboxto(newpositionx){
+				box.css("left", newpositionx);
 			}
 
 			// changes the text displayed on the Box
@@ -68,27 +66,60 @@
 			//////////////////////////////////////////////////////////////////
 
 			// TODO 2 - Variable declarations 
-
-
-            
+			var positionX = 0
+            var points = 0
+            var speed = 10
+			var boardWidth = 1750
 			/*  
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() { 
-              var=(positionx)
-			  positionx=(positionx + 10)
-			};
+				/*we want to increase the value of positionX by 10*/
+				positionX = positionX + speed;
+			   moveboxto(positionX)
+			   
+			   if (positionX > boardWidth){
+				speed *= -1;
+			   } 
+			   if (positionX < 0){
+				speed *= -1 ;
+			   }
+			  
+			}
+            // //  // Frame 1
+            //  positionX = 0 + 10; 
+            //  moveBoxTo(positionX);
+
+            // // // Frame 2
+            //  positionX = 10 + 10; 
+            //  moveBoxTo(positionX);
+
+            // // // Frame 3
+            //  positionX = 20 + 10; 
+            //  moveBoxTo(positionX);
+
+            // // // Frame 4
+            //  positionX = 30 + 10; 
+            // moveBoxTo(positionX);
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-
-
-			};
+                 positionX = 0;
+                changeBoxText(points);
+                points += 1;
+				
+				if (speed > 0){
+                    speed = speed + 3;
+				}else  if  (speed < 0){
+                      speed = speed - 3
+				}
+				};
+			
 
 
 
@@ -98,4 +129,4 @@
 	</script>
 </body>
 
-</html>
+</html> 

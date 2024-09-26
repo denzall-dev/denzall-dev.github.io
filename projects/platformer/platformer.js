@@ -52,7 +52,7 @@ $(function () {
     
     // TODO 2
     // Create collectables
-    createCollectable("diamond", 600,100,1, )
+    createCollectable("diamond", 600,100,1 )
     createCollectable("grace",500,100)
     createCollectable("database",500,500,5,0.5)
     // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
