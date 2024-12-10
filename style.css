@@ -49,6 +49,8 @@ main {
 .sidebar-img {
     max-width: 200px;
     max-height:  375px;
+    border: solid;
+       border-color: green;
 
 }
 .content {
