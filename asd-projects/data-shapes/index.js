@@ -38,39 +38,48 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
 
   // TODO 1: create a new shape object and add it to the array
-  
-
+  const newShape = {
+    color: "blue",
+    shape: "circle",
+    repeat: 3,
+  };
+  dataShapes.push(newShape);
   // TODO 2: add a new property to all data shapes
-  
+  for (let i = 0; i < dataShapes.length; i++) {
+    dataShapes[i].goodBehavior = "bounce";
+  }
 
   // TODO 3-a: add a function that handles the static display type
-  
-
+  function handleStatic() {
+    animationDetails.displayType = 1;
+    resetDisplay();
+  }
   // TODO 4-a: add a function that handles the good display type
-  
-
+  function handleGood() {
+    animationDetails.displayType = 2;
+    resetDisplay();
+  }
   // TODO 5-a: add a function that handles the bad display type
-  
-
+  function handleBad() {
+    animationDetails.displayType = 3;
+    resetDisplay();
+  }
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
   /////////////////////////////////////////////////
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    
   }
-
+  handleStatic();
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    
   }
-
+  handleGood();
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
   }
-
+  handleBad();
   /////////////////////////////////////////////////
   // ALL OF YOUR CODE SHOULD GO ABOVE HERE ////////
   /////////////////////////////////////////////////
