@@ -45,24 +45,33 @@ $(document).ready(function () {
   };
   dataShapes.push(newShape);
   // TODO 2: add a new property to all data shapes
-  for (let i = 0; i < dataShapes.length; i++) {
-    dataShapes[i].goodBehavior = "bounce";
-  }
 
+  // 2a) Make a loop that iterates over the dataShapes array
+  for (let i = 0; i < dataShapes.length; i++) {
+    const currentShape = dataShapes[i];
+
+    if (currentShape.color === "red") {
+      currentShape.goodBehavior = "bounce";
+    } else if (currentShape.color === "blue") {
+      currentShape.goodBehavior = "blink";
+    } else {
+      currentShape.goodBehavior = "spin";
+    }
+  }
   // TODO 3-a: add a function that handles the static display type
-  function handleStatic() {
+  function handleStatic(data) {
     animationDetails.displayType = 1;
-    resetDisplay();
+    setBackgroundWithObject(data);
   }
   // TODO 4-a: add a function that handles the good display type
-  function handleGood() {
+  function handleGood(color, shape, repeat) {
     animationDetails.displayType = 2;
-    resetDisplay();
+    setBackgroundWithSimple(color, shape, repeat);
   }
   // TODO 5-a: add a function that handles the bad display type
-  function handleBad() {
+  function handleBad(data, repeat) {
     animationDetails.displayType = 3;
-    resetDisplay();
+    setBackgroundWithMixed(data, repeat);
   }
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
@@ -70,16 +79,18 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
+    handleStatic(dataShapes[currentIndex]);
   }
-  handleStatic();
   function goodDisplay() {
+    var cshape = dataShapes[currentIndex];
+    handleGood(cshape.color, cshape.shape, cshape.repeat);
     // TODO 4-b: call your handleGood function
   }
-  handleGood();
   function badDisplay() {
+    var cshape = dataShapes[currentIndex];
     // TODO 5-b: call your handleBad function
+    handleBad(cshape.color, cshape.shape, cshape.repeat);
   }
-  handleBad();
   /////////////////////////////////////////////////
   // ALL OF YOUR CODE SHOULD GO ABOVE HERE ////////
   /////////////////////////////////////////////////
