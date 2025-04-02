@@ -70,6 +70,7 @@ $(document).ready(function () {
   }
   // TODO 5-a: add a function that handles the bad display type
   function handleBad(data, repeat) {
+    repeat++
     animationDetails.displayType = 3;
     setBackgroundWithMixed(data, repeat);
   }
@@ -88,8 +89,9 @@ $(document).ready(function () {
   }
   function badDisplay() {
     var cshape = dataShapes[currentIndex];
+    var repeat = cshape.repeat 
     // TODO 5-b: call your handleBad function
-    handleBad(cshape.color, cshape.shape, cshape.repeat);
+    handleBad( cshape, repeat);
   }
   /////////////////////////////////////////////////
   // ALL OF YOUR CODE SHOULD GO ABOVE HERE ////////
