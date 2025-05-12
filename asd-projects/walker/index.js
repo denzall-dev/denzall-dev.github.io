@@ -13,8 +13,8 @@ function runProgram() {
 
   var KEY = {
     LEFT: 37,
-    RIGHT: 38,
-    UP: 39,
+    RIGHT: 39,
+    UP: 38,
     DOWN: 40,
   };
   // Game Item Objects
@@ -33,6 +33,7 @@ function runProgram() {
     $("#walker").css("top", walker.y);
   }
   $(document).on("keyup", handleKeyup);
+  $(document).on("keydown", handleKeydown);
   function handleKeyup(event) {
     if (event.which === KEY.LEFT || event.which === KEY.RIGHT)
       walker.speedX = 0;
@@ -41,7 +42,7 @@ function runProgram() {
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on("eventType", handleEvent); // change 'eventType' to the type of event you want to handle
+   // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -60,7 +61,7 @@ function runProgram() {
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeydown(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = -5;
     } else if (event.which === KEY.RIGHT) {
